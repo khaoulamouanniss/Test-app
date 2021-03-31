@@ -3,10 +3,15 @@ import "./popup.css";
 
 
 export default function Popup(props) {
+
+  //Destruct the props
   const {trigger, setTrigger, condition} = props;
-  let keywords = (condition.keywords)? condition.keywords.map(key => " #" + key) : "";
-  let synonyms = (condition.synonyms)? condition.synonyms.map(syn => syn + ". ") : "";
-  return trigger?(
+
+  //add # before all the keywords.
+  let keywords = (condition.keywords) ? condition.keywords.map(key => " #" + key) : "";
+  let synonyms = (condition.synonyms) ? condition.synonyms.map(syn => syn + ". ") : "";
+
+  return trigger ? (
     <div className="popup">
       <div className="popup-inner">
         <button className="close-btn" onClick={() => setTrigger(false)}>x</button>
